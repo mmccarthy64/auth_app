@@ -1,4 +1,4 @@
-class CurrentUserConcern
+module CurrentUserConcern
     extend ActiveSupport::Concern
 
     included do
@@ -6,7 +6,7 @@ class CurrentUserConcern
     end
 
     def set_current_user
-        if sessions[:user_id]
+        if session[:user_id]
             @current_user = User.find(session[:user_id])
         end
     end
